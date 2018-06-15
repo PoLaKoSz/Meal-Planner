@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EditMealView</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<body>
+		<div id="container">
+			<input type="text" class="active" value="0,5 kg Rice">
+			<input type="text" class="active" value="50 dkg Potato">
+			<input type="text" class="inactive" placeholder="Add new ingredient">
+			<br>
+			<input type="text" class="active" value="2 kg Roasted Meat">
+			<input type="text" class="inactive" placeholder="Add new ingredient">
+			<br>
+			<input type="text" class="inactive" placeholder="Add new ingredient">
+		</div>
+
+		<div class="overlay">
+			<div class="popup">
+				<div class="close">
+					x
+				</div>
+				<input type="text" value="0,5">
+				<select>
+					<option value="volvo">kg</option>
+					<option value="saab">dkg</option>
+				</select>
+				<input type="text" value="Rice">
+
+				<div class="btn btn_save">Save</div>
+
+				<div class="btn btn_cancel">Cancel</div>
+			</div>
+		</div>
+	</body>
+</html>
