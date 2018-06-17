@@ -73,7 +73,7 @@ namespace MealPlanner.ViewModels
                 
         private bool IsNoDuplication(Ingredient ingredient)
         {
-            return ingredient.Name.Length > 2 && !Ingredients.Contains(ingredient);
+            return ingredient.Name.Length > 2 && !Ingredients.Any(i => i.Name.Equals(ingredient.Name));
         }
 
         private void AddNewIngredient(Ingredient ingredient)
@@ -84,7 +84,7 @@ namespace MealPlanner.ViewModels
         }
         private void DeleteIngredient(Ingredient ingredient)
         {
-            Ingredients.Remove(Ingredients.Where(i => i.Name == ingredient.Name).Single());
+            Ingredients.Remove(Ingredients.Where(i => i.Name == ingredient.Name).FirstOrDefault());
         }
     }
 }
