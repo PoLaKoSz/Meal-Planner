@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MealPlanner</RootNamespace>
     <AssemblyName>MealPlanner</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -53,12 +53,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccessLayer\DataManager.cs" />
+    <Compile Include="Models\MealForMenu.cs" />
+    <Compile Include="Models\IMealEqualComparer.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\FoodIngredient.cs" />
+    <Compile Include="Models\IRandomGenerator.cs" />
     <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\MealWithRepastType.cs" />
+    <Compile Include="Models\RandomGenerator.cs" />
     <Compile Include="Models\Repast.cs" />
     <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\RepastForMenu.cs" />
     <Compile Include="Models\RepastType.cs" />
     <Compile Include="MVVM\Helpers\DebugTraceListener.cs" />
     <Compile Include="MVVM\ViewModels\BaseViewModel.cs" />
@@ -90,6 +95,11 @@
     <Compile Include="Views\Repast\ShowRepastView.xaml.cs">
       <DependentUpon>ShowRepastView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Workers\MealComparer.cs" />
+    <Compile Include="Workers\MealGenerator.cs" />
+    <Compile Include="Workers\MealRepetitionChecker.cs" />
+    <Compile Include="Workers\MenuGenerator.cs" />
+    <Compile Include="Workers\RepastGenerator.cs" />
     <Page Include="MVVM\Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
