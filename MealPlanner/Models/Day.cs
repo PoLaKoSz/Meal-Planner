@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace MealPlanner.Models
@@ -11,9 +12,12 @@ namespace MealPlanner.Models
 
 
         public Day(List<RepastForMenu> repasts, int year, int month, int day)
+            : this(repasts, new DateTime(year, month, day)) { }
+        [JsonConstructor]
+        public Day(List<RepastForMenu> repasts, DateTime date)
         {
             Repasts = repasts;
-            Date = new DateTime(year, month, day);
+            Date = date;
         }
 
 

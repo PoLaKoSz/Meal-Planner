@@ -71,6 +71,7 @@
     <Compile Include="ViewModels\IngredientViewModel.cs" />
     <Compile Include="ViewModels\MealViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingListViewModel.cs" />
     <Compile Include="Views\Repast\AddRepastView.xaml.cs">
       <DependentUpon>AddRepastView.xaml</DependentUpon>
     </Compile>
@@ -95,11 +96,15 @@
     <Compile Include="Views\Repast\ShowRepastView.xaml.cs">
       <DependentUpon>ShowRepastView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Shopping List\ShowShoppingListVew.xaml.cs">
+      <DependentUpon>ShowShoppingListVew.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workers\MealComparer.cs" />
     <Compile Include="Workers\MealGenerator.cs" />
     <Compile Include="Workers\MealRepetitionChecker.cs" />
     <Compile Include="Workers\MenuGenerator.cs" />
     <Compile Include="Workers\RepastGenerator.cs" />
+    <Compile Include="Workers\ShoppingListGenerator.cs" />
     <Page Include="MVVM\Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Repast\ShowRepastView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shopping List\ShowShoppingListVew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

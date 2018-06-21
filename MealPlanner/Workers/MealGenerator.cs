@@ -28,7 +28,7 @@ namespace MealPlanner.Workers
         /// <returns></returns>
         public MealForMenu GenerateMeal(Meal baseMeal)
         {
-            var mealIngredients = new List<Ingredient>();
+            var mealIngredients = new List<FoodIngredient>();
 
             foreach (ObservableCollection<FoodIngredient> ingredients in baseMeal.Ingredients)
                 mealIngredients.Add(ingredients[Random.Next(0, ingredients.Count)]);

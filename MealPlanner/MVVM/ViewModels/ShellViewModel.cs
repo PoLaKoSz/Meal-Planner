@@ -66,6 +66,7 @@ namespace MealPlanner.MVVM.ViewModels
         {
             Data = new DataManager();
 
+            PageViewModels.Add(new ShoppingListViewModel());
             PageViewModels.Add(new MenuViewModel());
             PageViewModels.Add(new RepastViewModel());
             PageViewModels.Add(new MealViewModel());
