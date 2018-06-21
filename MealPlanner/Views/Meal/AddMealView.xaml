@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
+            <RowDefinition Height="100" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
@@ -27,8 +28,23 @@
                     Command="{Binding NavigateToShowViewCommand}" />
         </WrapPanel>
 
-        <ListView ItemsSource="{Binding NewMeal.Ingredients}"
+        <ListView ItemsSource="{Binding NewMeal.RepastTypes}"
                   Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <CheckBox IsChecked="{Binding IsCheched, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  Margin="0,0,5,0" />
+                        <TextBlock Text="{Binding Name}"
+                                  Margin="0,0,5,0" />
+                        <TextBlock Text="{Binding IsCheched}" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView ItemsSource="{Binding NewMeal.Ingredients}"
+                  Grid.Row="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ListView ItemsSource="{Binding}">

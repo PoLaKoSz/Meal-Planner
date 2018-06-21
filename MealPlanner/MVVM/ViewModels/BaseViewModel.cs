@@ -29,6 +29,10 @@ namespace MealPlanner.MVVM.ViewModels
         {
             get => new RelayCommand(p => NavigateToView(_addView), p => true);
         }
+        public ICommand NavigateToShowViewCommand
+        {
+            get => new RelayCommand(p => NavigateToView(_showView), p => true);
+        }
 
 
 

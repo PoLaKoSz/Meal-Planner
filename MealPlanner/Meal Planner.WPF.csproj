@@ -56,13 +56,19 @@
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\FoodIngredient.cs" />
     <Compile Include="Models\Meal.cs" />
+    <Compile Include="Models\MealWithRepastType.cs" />
     <Compile Include="Models\Repast.cs" />
     <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\RepastType.cs" />
     <Compile Include="MVVM\Helpers\DebugTraceListener.cs" />
     <Compile Include="MVVM\ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\RepastViewModel.cs" />
     <Compile Include="ViewModels\IngredientViewModel.cs" />
     <Compile Include="ViewModels\MealViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="Views\Repast\AddRepastView.xaml.cs">
+      <DependentUpon>AddRepastView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Ingredient\AddIngredientView.xaml.cs">
       <DependentUpon>AddIngredientView.xaml</DependentUpon>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="Views\Menu\ShowMenuView.xaml.cs">
       <DependentUpon>ShowMenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Repast\ShowRepastView.xaml.cs">
+      <DependentUpon>ShowRepastView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MVVM\Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,6 +106,10 @@
       <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Repast\AddRepastView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Ingredient\AddIngredientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Menu\ShowMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Repast\ShowRepastView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

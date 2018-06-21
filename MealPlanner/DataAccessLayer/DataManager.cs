@@ -10,7 +10,7 @@ namespace MealPlanner.DataAccessLayer
         private List<Ingredient> _ingredients;
         private List<Meal> _meals;
         private List<Day> _menu;
-
+        private List<Repast> _repast;
 
         public List<Ingredient> Ingredients
         {
@@ -60,6 +60,23 @@ namespace MealPlanner.DataAccessLayer
                 SaveToFile("menu", value);
             }
         }
+        public List<Repast> Repast
+        {
+            get
+            {
+                if (_repast == null)
+                    _repast = LoadFile("repast", new List<Repast>());
+
+                return _repast;
+            }
+            set
+            {
+                _repast = value;
+
+                SaveToFile("repast", value);
+            }
+        }
+
 
 
         private T LoadFile<T>(string path, T defaultValue)
@@ -77,7 +94,7 @@ namespace MealPlanner.DataAccessLayer
         {
             string rawJson = JsonConvert.SerializeObject(collection, Formatting.None);
 
-            File.WriteAllText(path+=".json", rawJson);
+            File.WriteAllText(path += ".json", rawJson);
         }
     }
 }
