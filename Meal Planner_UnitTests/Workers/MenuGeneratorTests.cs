@@ -1,5 +1,4 @@
-﻿using Meal_Planner_UnitTests.Helpers;
-using MealPlanner.Models;
+﻿using MealPlanner.Models;
 using MealPlanner.Workers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

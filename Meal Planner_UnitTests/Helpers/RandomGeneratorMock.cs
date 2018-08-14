@@ -2,7 +2,7 @@
 
 namespace Meal_Planner_UnitTests.Helpers
 {
-    public class RandomGeneratorMock : IRandomGenerator
+    internal class RandomGeneratorMock : IRandomGenerator
     {
         /// <summary>
         /// Return minValue

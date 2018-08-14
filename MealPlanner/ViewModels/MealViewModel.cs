@@ -11,24 +11,24 @@ namespace MealPlanner.ViewModels
 {
     public class MealViewModel : BaseViewModel
     {
-        private ObservableCollection<Meal> _meals;
+        private ObservableCollection<IMeal> _meals;
         private MealWithRepastType _newMeal;
         private List<RepastType> _repastTypes;
-        private List<Repast> _repast;
-        private List<Repast> Repast
+        private List<Repast> _availableRepasts;
+        private List<Repast> AvailableRepasts
         {
             get
             {
-                if (_repast == null)
+                if (_availableRepasts == null)
                     return ShellViewModel.Data.Repast;
 
-                return _repast;
+                return _availableRepasts;
             }
-            set => _repast = value;
+            set => _availableRepasts = value;
         }
 
 
-        public ObservableCollection<Meal> Meals
+        public ObservableCollection<IMeal> Meals
         {
             get => _meals;
             set
@@ -62,16 +62,7 @@ namespace MealPlanner.ViewModels
                 return _repastTypes;
             }
         }
-
-
-        public ICommand AddNewRowCommand
-        {
-            get => new RelayCommand(p => AddNewRow(), p => true);
-        }
-        public ICommand AddNewColumnCommand
-        {
-            get => new RelayCommand(p => AddNewColumn(), p => true);
-        }
+        
         public ICommand AddMealCommand
         {
             get => new RelayCommand(p => AddMeal(), p => true);
@@ -80,8 +71,7 @@ namespace MealPlanner.ViewModels
         {
             get => new RelayCommand(p => SaveMeals(), p => true);
         }
-
-
+        
         public ICommand EditMealCommand
         {
             // TODO
@@ -97,7 +87,7 @@ namespace MealPlanner.ViewModels
         public MealViewModel()
             : base("Meals")
         {
-            Meals = new ObservableCollection<Meal>(ShellViewModel.Data.Meals);
+            Meals = new ObservableCollection<IMeal>(ShellViewModel.Data.Meals);
             NewMeal = new MealWithRepastType(RepastTypes);
 
             _showView = new ShowMealView()
@@ -120,8 +110,8 @@ namespace MealPlanner.ViewModels
             {
                 RepastType repastType = RepastTypes[i];
 
-                if (repastType.IsCheched && Repast[i].Name.Equals(repastType.Name))
-                    Repast[i].Meals.Add(new Meal(NewMeal.Name, NewMeal.Ingredients));
+                if (repastType.IsCheched && AvailableRepasts[i].Name.Equals(repastType.Name))
+                    AvailableRepasts[i].Meals.Add(new Meal(NewMeal.Name, NewMeal.Ingredients));
             }
 
             Meals.Add(NewMeal);
@@ -134,22 +124,8 @@ namespace MealPlanner.ViewModels
         }
         private void SaveMeals()
         {
-            ShellViewModel.Data.Repast = Repast;
-            ShellViewModel.Data.Meals = new List<Meal>(Meals);
-        }
-        private void AddNewRow()
-        {
-            NewMeal.Ingredients.Add(new ObservableCollection<FoodIngredient>()
-            {
-                new FoodIngredient()
-            });
-        }
-        private void AddNewColumn()
-        {
-            foreach (ObservableCollection<FoodIngredient> row in NewMeal.Ingredients)
-            {
-                row.Add(new FoodIngredient());
-            }
+            ShellViewModel.Data.Repast = AvailableRepasts;
+            ShellViewModel.Data.Meals = new List<IMeal>(Meals);
         }
     }
 }

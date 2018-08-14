@@ -53,6 +53,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccessLayer\DataManager.cs" />
+    <Compile Include="Models\IFoodIngredient.cs" />
+    <Compile Include="Models\IMeal.cs" />
+    <Compile Include="MVVM\Converters\IntegerBindingConverter.cs" />
+    <Compile Include="Workers\IngredientTable\IIngredientTableCell.cs" />
+    <Compile Include="Workers\IngredientTable\IIngredientTableRow.cs" />
+    <Compile Include="Workers\IngredientTable\IIngredientTable.cs" />
+    <Compile Include="Workers\IngredientTable\IngredientTableRow.cs" />
     <Compile Include="Models\MealForMenu.cs" />
     <Compile Include="Models\IMealEqualComparer.cs" />
     <Compile Include="Models\Ingredient.cs" />
@@ -102,6 +109,8 @@
     <Compile Include="Workers\MealComparer.cs" />
     <Compile Include="Workers\MealGenerator.cs" />
     <Compile Include="Workers\MealRepetitionChecker.cs" />
+    <Compile Include="Workers\IngredientTable\IngredientTable.cs" />
+    <Compile Include="Workers\IngredientTable\IngredientTableCell.cs" />
     <Compile Include="Workers\MenuGenerator.cs" />
     <Compile Include="Workers\RepastGenerator.cs" />
     <Compile Include="Workers\ShoppingListGenerator.cs" />

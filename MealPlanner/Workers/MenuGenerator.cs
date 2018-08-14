@@ -7,8 +7,11 @@ namespace MealPlanner.Workers
 {
     public class MenuGenerator
     {
+        private List<Repast> _inputRepasts { get; set; }
+
+
         public ObservableCollection<Day> Days { get; private set; }
-        private List<Repast> InputRepasts { get; set; }
+
         public List<RepastType> RepastTypes { get; set; }
 
 
@@ -17,7 +20,7 @@ namespace MealPlanner.Workers
             : this(repasts, new ObservableCollection<Day>()) { }
         public MenuGenerator(List<Repast> repasts, ObservableCollection<Day> days)
         {
-            InputRepasts = repasts ?? throw new ArgumentNullException(nameof(repasts));
+            _inputRepasts = repasts ?? throw new ArgumentNullException(nameof(repasts));
             Days = days ?? throw new ArgumentNullException(nameof(days));
             RepastTypes = new List<RepastType>();
         }
@@ -71,7 +74,7 @@ namespace MealPlanner.Workers
                 {
                     if (RepastTypes[r].IsCheched)
                     {
-                        var repastGenerator = new RepastGenerator(RepastTypes[r], InputRepasts);
+                        var repastGenerator = new RepastGenerator(RepastTypes[r], _inputRepasts);
                         
                         repastGenerator.CollectPreviousMeals(Days, 0, 0);
 

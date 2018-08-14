@@ -2,16 +2,16 @@
 
 namespace MealPlanner.Models
 {
-    public class FoodIngredient : Ingredient
+    public class FoodIngredient : Ingredient, IFoodIngredient
     {
-        public double Quantity { get; set; }
+        public int Quantity { get; set; }
         public string QuantityName { get; set; }
 
 
 
         public FoodIngredient()
             : this(0, "", "") { }
-        public FoodIngredient(double foodQuantity, string foodQuantityName, string foodName)
+        public FoodIngredient(int foodQuantity, string foodQuantityName, string foodName)
             : base(foodName)
         {
             Quantity = foodQuantity;

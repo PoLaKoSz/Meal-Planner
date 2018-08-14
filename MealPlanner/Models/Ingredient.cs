@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MealPlanner.MVVM;
 
 namespace MealPlanner.Models
 {
-    public class Ingredient
+    public class Ingredient : ObservableObject
     {
         public string Name { get; set; }
 

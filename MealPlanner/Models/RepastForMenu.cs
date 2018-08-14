@@ -14,7 +14,7 @@ namespace MealPlanner.Models
 
 
         public RepastForMenu(string repastName)
-            : this(repastName, new MealForMenu("", new List<FoodIngredient>())) { }
+            : this(repastName, new MealForMenu("", new List<IFoodIngredient>())) { }
         [JsonConstructor]
         public RepastForMenu(string repastName, MealForMenu meal)
         {

@@ -1,12 +1,11 @@
 ﻿using MealPlanner.Models;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace MealPlanner.Workers
-{    
+{
     public class MealGenerator
     {
-        private IRandomGenerator Random { get; set; }
+        private IRandomGenerator _random { get; set; }
 
 
 
@@ -16,7 +15,7 @@ namespace MealPlanner.Workers
         /// <param name="randomGenerator">Required when a random <see cref="Ingredient"/> selected</param>
         public MealGenerator(IRandomGenerator randomGenerator)
         {
-            Random = randomGenerator;
+            _random = randomGenerator;
         }
 
 
@@ -28,10 +27,12 @@ namespace MealPlanner.Workers
         /// <returns></returns>
         public MealForMenu GenerateMeal(Meal baseMeal)
         {
-            var mealIngredients = new List<FoodIngredient>();
+            var mealIngredients = new List<IFoodIngredient>();
 
-            foreach (ObservableCollection<FoodIngredient> ingredients in baseMeal.Ingredients)
-                mealIngredients.Add(ingredients[Random.Next(0, ingredients.Count)]);
+            foreach (var row in baseMeal.Ingredients)
+            {
+                mealIngredients.Add(row.Cells[_random.Next(0, row.Cells.Count)]);
+            }
 
             return new MealForMenu(baseMeal.Name, mealIngredients);
         }

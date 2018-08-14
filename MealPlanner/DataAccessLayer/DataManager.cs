@@ -8,7 +8,7 @@ namespace MealPlanner.DataAccessLayer
     public class DataManager
     {
         private List<Ingredient> _ingredients;
-        private List<Meal> _meals;
+        private List<IMeal> _meals;
         private List<Day> _menu;
         private List<Repast> _repast;
 
@@ -28,12 +28,12 @@ namespace MealPlanner.DataAccessLayer
                 SaveToFile("ingredients", value);
             }
         }
-        public List<Meal> Meals
+        public List<IMeal> Meals
         {
             get
             {
                 if (_meals == null)
-                    _meals = LoadFile("meals", new List<Meal>());
+                    _meals = LoadFile("meals", new List<IMeal>());
 
                 return _meals;
             }
@@ -90,6 +90,7 @@ namespace MealPlanner.DataAccessLayer
 
             return JsonConvert.DeserializeObject<T>(rawJson);
         }
+
         private void SaveToFile<T>(string path, T collection)
         {
             string rawJson = JsonConvert.SerializeObject(collection, Formatting.None);
