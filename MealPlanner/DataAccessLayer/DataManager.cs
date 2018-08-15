@@ -79,6 +79,14 @@ namespace MealPlanner.DataAccessLayer
 
 
 
+        public DataManager(string path)
+        {
+            var db = new SQLiteDB(path);
+            new SQLiteMigrator(db).UpdateDatabase();
+        }
+
+
+
         private T LoadFile<T>(string path, T defaultValue)
         {
             path += ".json";

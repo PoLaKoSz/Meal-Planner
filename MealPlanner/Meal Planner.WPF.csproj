@@ -150,6 +150,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccessLayer\DataManager.cs" />
+    <Compile Include="DataAccessLayer\Migrations\001_Create_Ingredients_Table.cs" />
+    <Compile Include="DataAccessLayer\Migrations\002_Create_Meal_Ingredients_Table.cs" />
+    <Compile Include="DataAccessLayer\Migrations\003_Create_Meals_Table.cs" />
+    <Compile Include="DataAccessLayer\Migrations\004_Create_Ready_Meals_Table.cs" />
+    <Compile Include="DataAccessLayer\Migrations\005_Create_Repast_Meals_Table.cs" />
+    <Compile Include="DataAccessLayer\Migrations\006_Create_Repasts_Table.cs" />
+    <Compile Include="DataAccessLayer\Migrations\007_Create_Menu_Repasts_Table.cs" />
+    <Compile Include="DataAccessLayer\Migrations\008_Create_Menus_Table.cs" />
+    <Compile Include="DataAccessLayer\SQLiteDB.cs" />
+    <Compile Include="DataAccessLayer\SQLiteMigrator.cs" />
     <Compile Include="Models\IFoodIngredient.cs" />
     <Compile Include="Models\IMeal.cs" />
     <Compile Include="MVVM\Converters\IntegerBindingConverter.cs" />

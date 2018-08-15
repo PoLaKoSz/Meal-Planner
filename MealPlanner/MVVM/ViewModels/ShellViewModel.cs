@@ -2,7 +2,9 @@
 using MealPlanner.MVVM.Models;
 using MealPlanner.MVVM.Views;
 using MealPlanner.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
 
@@ -64,7 +66,16 @@ namespace MealPlanner.MVVM.ViewModels
 
         public ShellViewModel()
         {
-            Data = new DataManager();
+            string appRootPath = Path.Combine(new []
+            {
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "PoLáKoSz's Corp",
+                "MealPlanner"
+            });
+
+            Directory.CreateDirectory(appRootPath);
+
+            Data = new DataManager(appRootPath);
 
             PageViewModels.Add(new ShoppingListViewModel());
             PageViewModels.Add(new MenuViewModel());
