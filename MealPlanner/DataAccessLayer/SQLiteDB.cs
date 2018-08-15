@@ -7,6 +7,7 @@ namespace MealPlanner.DataAccessLayer
     public class SQLiteDB
     {
         private readonly IngredientTable _ingredientsTable;
+        private readonly MealsTable _mealsTable;
 
 
         public readonly string ConnectionString;
@@ -16,6 +17,7 @@ namespace MealPlanner.DataAccessLayer
         public SQLiteDB(string directory)
         {
             _ingredientsTable = new IngredientTable(ConnectionString);
+            _mealsTable = new MealsTable(ConnectionString);
 
             ConnectionString = new SQLiteConnectionStringBuilder()
             {
@@ -28,6 +30,11 @@ namespace MealPlanner.DataAccessLayer
         public IngredientTable Ingredient()
         {
             return _ingredientsTable;
+        }
+
+        public MealsTable Meal()
+        {
+            return _mealsTable;
         }
     }
 }

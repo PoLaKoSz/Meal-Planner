@@ -11,7 +11,7 @@ namespace MealPlanner.ViewModels
 {
     public class MealViewModel : BaseViewModel
     {
-        private ObservableCollection<IMeal> _meals;
+        private ObservableCollection<MealWithRepastType> _meals;
         private MealWithRepastType _newMeal;
         private List<RepastType> _repastTypes;
         private List<Repast> _availableRepasts;
@@ -28,7 +28,7 @@ namespace MealPlanner.ViewModels
         }
 
 
-        public ObservableCollection<IMeal> Meals
+        public ObservableCollection<MealWithRepastType> Meals
         {
             get => _meals;
             set
@@ -87,7 +87,7 @@ namespace MealPlanner.ViewModels
         public MealViewModel()
             : base("Meals")
         {
-            Meals = new ObservableCollection<IMeal>(ShellViewModel.Data.Meals);
+            Meals = new ObservableCollection<MealWithRepastType>(ShellViewModel.Data.Meals);
             NewMeal = new MealWithRepastType(RepastTypes);
 
             _showView = new ShowMealView()
@@ -125,7 +125,7 @@ namespace MealPlanner.ViewModels
         private void SaveMeals()
         {
             ShellViewModel.Data.Repast = AvailableRepasts;
-            ShellViewModel.Data.Meals = new List<IMeal>(Meals);
+            ShellViewModel.Data.Meals = Meals;
         }
     }
 }

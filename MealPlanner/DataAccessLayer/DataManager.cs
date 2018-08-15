@@ -1,6 +1,7 @@
 ﻿using MealPlanner.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 
 namespace MealPlanner.DataAccessLayer
@@ -9,7 +10,7 @@ namespace MealPlanner.DataAccessLayer
     {
         private readonly SQLiteDB _db;
         private List<Ingredient> _ingredients;
-        private List<IMeal> _meals;
+        private ObservableCollection<MealWithRepastType> _meals;
         private List<Day> _menu;
         private List<Repast> _repast;
 
@@ -29,12 +30,12 @@ namespace MealPlanner.DataAccessLayer
                 _db.Ingredient().Update(value);
             }
         }
-        public List<IMeal> Meals
+        public ObservableCollection<MealWithRepastType> Meals
         {
             get
             {
                 if (_meals == null)
-                    _meals = LoadFile("meals", new List<IMeal>());
+                    _meals = new ObservableCollection<MealWithRepastType>(_db.Meal().All());
 
                 return _meals;
             }
@@ -42,7 +43,7 @@ namespace MealPlanner.DataAccessLayer
             {
                 _meals = value;
 
-                SaveToFile("meals", value);
+                _db.Meal().Update(new List<MealWithRepastType>(value));
             }
         }
         public List<Day> Menu
