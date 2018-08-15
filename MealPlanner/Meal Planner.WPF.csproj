@@ -160,6 +160,8 @@
     <Compile Include="DataAccessLayer\Migrations\008_Create_Menus_Table.cs" />
     <Compile Include="DataAccessLayer\SQLiteDB.cs" />
     <Compile Include="DataAccessLayer\SQLiteMigrator.cs" />
+    <Compile Include="DataAccessLayer\Tables\IngredientTable.cs" />
+    <Compile Include="Exceptions\SqlCommandException.cs" />
     <Compile Include="Models\IFoodIngredient.cs" />
     <Compile Include="Models\IMeal.cs" />
     <Compile Include="MVVM\Converters\IntegerBindingConverter.cs" />

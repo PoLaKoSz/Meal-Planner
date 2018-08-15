@@ -7,6 +7,7 @@ namespace MealPlanner.DataAccessLayer
 {
     public class DataManager
     {
+        private readonly SQLiteDB _db;
         private List<Ingredient> _ingredients;
         private List<IMeal> _meals;
         private List<Day> _menu;
@@ -17,7 +18,7 @@ namespace MealPlanner.DataAccessLayer
             get
             {
                 if (_ingredients == null)
-                    _ingredients = LoadFile("ingredients", new List<Ingredient>());
+                    _ingredients = _db.Ingredient().All();
 
                 return _ingredients;
             }
@@ -25,7 +26,7 @@ namespace MealPlanner.DataAccessLayer
             {
                 _ingredients = value;
 
-                SaveToFile("ingredients", value);
+                _db.Ingredient().Update(value);
             }
         }
         public List<IMeal> Meals
@@ -81,8 +82,8 @@ namespace MealPlanner.DataAccessLayer
 
         public DataManager(string path)
         {
-            var db = new SQLiteDB(path);
-            new SQLiteMigrator(db).UpdateDatabase();
+            _db = new SQLiteDB(path);
+            new SQLiteMigrator(_db).UpdateDatabase();
         }
 
 

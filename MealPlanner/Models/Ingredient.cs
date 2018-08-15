@@ -4,12 +4,14 @@ namespace MealPlanner.Models
 {
     public class Ingredient : ObservableObject
     {
+        public int ID { get; }
         public string Name { get; set; }
 
 
 
-        public Ingredient(string ingredientName)
+        public Ingredient(int id, string ingredientName)
         {
+            ID = id;
             Name = ingredientName;
         }
 
