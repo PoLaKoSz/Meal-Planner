@@ -42,6 +42,7 @@ namespace MealPlanner.Workers.IngredientTable
 
 
         public IngredientTableCell(int columnIndex, IIngredientTableRow container)
+            : base(0, "", "")
         {
             ColumnIndex = columnIndex;
             _container = container;

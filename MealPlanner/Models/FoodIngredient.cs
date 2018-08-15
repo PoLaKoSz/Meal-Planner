@@ -9,13 +9,16 @@ namespace MealPlanner.Models
 
 
 
-        public FoodIngredient()
-            : this(0, "", "") { }
-        public FoodIngredient(int foodQuantity, string foodQuantityName, string foodName)
-            : base(foodName)
+        public FoodIngredient(int quantity, string quantityName, string name)
+            : base(name)
         {
-            Quantity = foodQuantity;
-            QuantityName = foodQuantityName;
+            Quantity = quantity;
+            QuantityName = quantityName;
+        }
+        public FoodIngredient(int id, int quantity, string quantityName, string name)
+            : this(quantity, quantityName, name)
+        {
+            SetID(id);
         }
 
 
