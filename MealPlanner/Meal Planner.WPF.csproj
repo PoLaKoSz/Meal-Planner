@@ -158,6 +158,7 @@
     <Compile Include="DataAccessLayer\Migrations\006_Create_Repasts_Table.cs" />
     <Compile Include="DataAccessLayer\Migrations\007_Create_Menu_Repasts_Table.cs" />
     <Compile Include="DataAccessLayer\Migrations\008_Create_Menus_Table.cs" />
+    <Compile Include="DataAccessLayer\Migrations\009_Add_And_Remove_Column_Inside_Meal_Ingredient_Table.cs" />
     <Compile Include="DataAccessLayer\SQLiteDB.cs" />
     <Compile Include="DataAccessLayer\SQLiteMigrator.cs" />
     <Compile Include="DataAccessLayer\Tables\IngredientTable.cs" />
