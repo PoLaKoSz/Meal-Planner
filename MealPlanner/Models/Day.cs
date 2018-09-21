@@ -6,6 +6,7 @@ namespace MealPlanner.Models
 {
     public class Day
     {
+        public int ID { get; set; }
         public List<RepastForMenu> Repasts { get; protected set; }
         public DateTime Date { get; protected set; }
 

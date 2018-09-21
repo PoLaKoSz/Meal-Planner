@@ -46,5 +46,13 @@ namespace MealPlanner.DataAccessLayer.Tables
                 return db.Query<Day>($"SELECT * FROM {_tableName}").ToList();
             }
         }
+
+        public void Update(Day menu)
+        {
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                db.Execute($"UPDATE {_tableName} (name) VALUES (@Name)", menu);
+            }
+        }
     }
 }
