@@ -8,6 +8,8 @@ namespace MealPlanner.DataAccessLayer
     {
         private readonly IngredientTable _ingredientsTable;
         private readonly MealsTable _mealsTable;
+        private readonly MenusTable _menusTable;
+        private readonly RepastsTable _repastsTable;
 
 
         public readonly string ConnectionString;
@@ -18,6 +20,8 @@ namespace MealPlanner.DataAccessLayer
         {
             _ingredientsTable = new IngredientTable(ConnectionString);
             _mealsTable = new MealsTable(ConnectionString);
+            _menusTable = new MenusTable(ConnectionString);
+            _repastsTable = new RepastsTable(ConnectionString);
 
             ConnectionString = new SQLiteConnectionStringBuilder()
             {
@@ -35,6 +39,16 @@ namespace MealPlanner.DataAccessLayer
         public MealsTable Meal()
         {
             return _mealsTable;
+        }
+
+        public MenusTable Menu()
+        {
+            return _menusTable;
+        }
+
+        public RepastsTable Repast()
+        {
+            return _repastsTable;
         }
     }
 }

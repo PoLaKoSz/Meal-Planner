@@ -51,7 +51,7 @@ namespace MealPlanner.DataAccessLayer
             get
             {
                 if (_menu == null)
-                    _menu = LoadFile("menu", new List<Day>());
+                    _menu = _db.Menu().All();
 
                 return _menu;
             }
@@ -59,7 +59,8 @@ namespace MealPlanner.DataAccessLayer
             {
                 _menu = value;
 
-                SaveToFile("menu", value);
+                // TODO: Hiányzik az UPDATE
+                //_db.Menu().Update(value);
             }
         }
         public List<Repast> Repast
@@ -67,7 +68,7 @@ namespace MealPlanner.DataAccessLayer
             get
             {
                 if (_repast == null)
-                    _repast = LoadFile("repast", new List<Repast>());
+                    _repast = _db.Repast().All();
 
                 return _repast;
             }
@@ -75,7 +76,8 @@ namespace MealPlanner.DataAccessLayer
             {
                 _repast = value;
 
-                SaveToFile("repast", value);
+                // TODO: Hiányzik az UPDATE
+                //_db.Repast().Update(value);
             }
         }
 
@@ -85,27 +87,6 @@ namespace MealPlanner.DataAccessLayer
         {
             _db = new SQLiteDB(path);
             new SQLiteMigrator(_db).UpdateDatabase();
-        }
-
-
-
-        private T LoadFile<T>(string path, T defaultValue)
-        {
-            path += ".json";
-
-            if (!File.Exists(path))
-                return defaultValue;
-
-            string rawJson = File.ReadAllText(path);
-
-            return JsonConvert.DeserializeObject<T>(rawJson);
-        }
-
-        private void SaveToFile<T>(string path, T collection)
-        {
-            string rawJson = JsonConvert.SerializeObject(collection, Formatting.None);
-
-            File.WriteAllText(path += ".json", rawJson);
         }
     }
 }
