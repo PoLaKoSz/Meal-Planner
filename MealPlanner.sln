@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meal Planner.WPF", "MealPla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meal Planner.UnitTests", "Meal Planner_UnitTests\Meal Planner.UnitTests.csproj", "{C849069F-8CD2-4365-8885-D0B7F361DCC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orai munka", "Orai munka\Orai munka.csproj", "{0C9935BC-E9BA-4F17-B94A-3A861835DD8E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Alpha|Any CPU = Alpha|Any CPU
