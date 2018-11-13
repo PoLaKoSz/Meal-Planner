@@ -62,7 +62,7 @@ namespace MealPlanner.Workers
             var mealGenerator = new MealGenerator(random);
 
             MealForMenu generatedMeal = mealGenerator.GenerateMeal(AvailableMeals[random.Next(0, AvailableMeals.Count)]);
-            
+
             for (int i = PreviousMeals.Count - 1; 0 <= i; i++)
             {
                 if (comparer.AreEqual(PreviousMeals[i], generatedMeal))
@@ -70,7 +70,7 @@ namespace MealPlanner.Workers
                     generatedMeal = mealGenerator.GenerateMeal(AvailableMeals[random.Next(0, AvailableMeals.Count)]);
                     i = PreviousMeals.Count - 1;
                 }
-            }            
+            }
 
             GeneratedRepast.Meal = generatedMeal;
 

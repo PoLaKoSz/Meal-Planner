@@ -62,7 +62,7 @@ namespace MealPlanner.ViewModels
                 return _repastTypes;
             }
         }
-        
+
         public ICommand AddMealCommand
         {
             get => new RelayCommand(p => AddMeal(), p => true);
@@ -71,7 +71,7 @@ namespace MealPlanner.ViewModels
         {
             get => new RelayCommand(p => SaveMeals(), p => true);
         }
-        
+
         public ICommand EditMealCommand
         {
             // TODO
@@ -101,7 +101,7 @@ namespace MealPlanner.ViewModels
 
             CurrentView = _showView;
         }
-        
+
 
 
         private void AddMeal()

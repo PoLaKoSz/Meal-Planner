@@ -1,8 +1,6 @@
 ﻿using MealPlanner.Models;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 
 namespace MealPlanner.DataAccessLayer
 {
@@ -23,12 +21,6 @@ namespace MealPlanner.DataAccessLayer
 
                 return _ingredients;
             }
-            set
-            {
-                _ingredients = value;
-
-                _db.Ingredient().Update(value);
-            }
         }
         public ObservableCollection<MealWithRepastType> Meals
         {
@@ -38,12 +30,6 @@ namespace MealPlanner.DataAccessLayer
                     _meals = new ObservableCollection<MealWithRepastType>(_db.Meal().All());
 
                 return _meals;
-            }
-            set
-            {
-                _meals = value;
-
-                _db.Meal().Update(new List<MealWithRepastType>(value));
             }
         }
         public List<Day> Menu
@@ -55,13 +41,6 @@ namespace MealPlanner.DataAccessLayer
 
                 return _menu;
             }
-            set
-            {
-                _menu = value;
-
-                // TODO: Hiányzik az UPDATE
-                //_db.Menu().Update(value);
-            }
         }
         public List<Repast> Repast
         {
@@ -71,13 +50,6 @@ namespace MealPlanner.DataAccessLayer
                     _repast = _db.Repast().All();
 
                 return _repast;
-            }
-            set
-            {
-                _repast = value;
-
-                // TODO: Hiányzik az UPDATE
-                //_db.Repast().Update(value);
             }
         }
 

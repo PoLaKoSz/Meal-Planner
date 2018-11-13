@@ -31,7 +31,7 @@ namespace MealPlanner.ViewModels
         public ICommand SaveIngredientsCommand
         {
             get => new RelayCommand(p => SaveIngredients(), p => true);
-        }        
+        }
         public ICommand AddNewIngredientCommand
         {
             get => new RelayCommand(
@@ -70,7 +70,6 @@ namespace MealPlanner.ViewModels
         {
             ShellViewModel.Data.Ingredients = new List<Ingredient>(Ingredients);
         }
-                
         private bool IsNoDuplication(Ingredient ingredient)
         {
             return ingredient.Name.Length > 2 && !Ingredients.Any(i => i.Name.Equals(ingredient.Name));
